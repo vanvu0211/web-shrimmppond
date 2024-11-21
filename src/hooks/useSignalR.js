@@ -15,12 +15,12 @@ const useSignalR = () => {
                 connection.on('ErrorNotification', (data) => {
                     try {
                         const parsedData = JSON.parse(data); // Parse JSON từ backend
-                        toast.error(`Lỗi: ${parsedData.name || 'Không xác định'}`); // Hiển thị thông báo lỗi
+                        toast.error(`Lỗi: ${parsedData.name || 'Không xác định'}`, {hideProgressBar:true, autoClose:false}); // Hiển thị thông báo lỗi
                     } catch (error) {
                         console.error('Failed to parse ErrorNotification data:', error);
                         toast.error('Không thể xử lý thông báo lỗi.');
                     }
-                });
+                }); 
             } catch (error) {
                 console.error('SignalR connection error:', error);
                 toast.error('Không thể kết nối tới máy chủ thông báo.');
