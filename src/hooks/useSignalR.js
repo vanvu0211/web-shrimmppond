@@ -15,7 +15,7 @@ const useSignalR = () => {
                 connection.on('ErrorNotification', (data) => {
                     try {
                         const parsedData = JSON.parse(data); // Parse JSON từ backend
-                        toast.error(`Lỗi: ${parsedData.name || 'Không xác định'}`, {hideProgressBar:true, autoClose:false, theme: "dark"}); // Hiển thị thông báo lỗi
+                        toast.error(`Lỗi: ${parsedData.name || 'Không xác định'}`, {hideProgressBar:true, autoClose:false, theme: "colored"}); // Hiển thị thông báo lỗi
                     } catch (error) {
                         console.error('Failed to parse ErrorNotification data:', error);
                         toast.error('Không thể xử lý thông báo lỗi.');
